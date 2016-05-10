@@ -39,10 +39,10 @@ for pdo_cassandra (apart from PHP and PDO of course).
 
 If you use thrift 0.9.3, you need to run a few commands to compile:
 
-"""
+```
  sed -i "s/apache::thrift::protocol::TInputRecursionTracker/::apache::thrift::protocol::TInputRecursionTracker/" gen-cpp/Cassandra.cpp gen-cpp/cassandra_types.cpp
  sed -i "s/apache::thrift::protocol::TOutputRecursionTracker/::apache::thrift::protocol::TOutputRecursionTracker/" gen-cpp/Cassandra.cpp gen-cpp/cassandra_types.cpp
-"""
+```
 
 pdo_cassandra ./configure script takes the following options:
 
