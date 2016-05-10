@@ -7,11 +7,15 @@ We cloned it on GitHub because the original project seemed to be dead.
 
 This version is developped for the CQL3 target only. We do not provide any support for former versions of CQL.
 
+# PHP 7
+
+The upstream version of this driver is compatible with PHP7 only.
+PHP 7 internal APIs are very different from the previous ones. Retrocompatibility is broken and no support of the previous versions is planned.
+
 # Cassandra versions support
 
-NEW: The driver is compatible with versions of Cassandra up to 2.0.x
-
-The support of Cassandra 2.0 is very new. So if you experience bugs, incorrect behavior or anything suspect, don't hesitate to fill a bug report.
+The driver is compatible with versions of Cassandra up to 2.2.6
+If you experience bugs, incorrect behavior or anything suspect, don't hesitate to fill a bug report.
 
 # What is different from the Datastax version?
  - Added support for float numbers, decimals
@@ -33,6 +37,13 @@ First install thrift from http://thrift.apache.org/download/. Thrift should depe
 boost shared_ptr so while installing thrift you are installing rest of the dependencies
 for pdo_cassandra (apart from PHP and PDO of course).
 
+If you use thrift 0.9.3, you need to run a few commands to compile:
+
+"""
+ sed -i "s/apache::thrift::protocol::TInputRecursionTracker/::apache::thrift::protocol::TInputRecursionTracker/" gen-cpp/Cassandra.cpp gen-cpp/cassandra_types.cpp
+ sed -i "s/apache::thrift::protocol::TOutputRecursionTracker/::apache::thrift::protocol::TOutputRecursionTracker/" gen-cpp/Cassandra.cpp gen-cpp/cassandra_types.cpp
+"""
+
 pdo_cassandra ./configure script takes the following options:
 
  - --with-pdo-cassandra[=FILE] where file is optional path to Cassandra Thrift definitions file. The file is
@@ -47,8 +58,8 @@ Build steps:
     $ phpize
     $ ./configure
     $ make
-    $ sudo make install 
- 
+    $ sudo make install
+
 
 # Running tests
 
