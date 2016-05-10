@@ -19,7 +19,6 @@ var_dump ($stmt->fetchAll ());
 //pdo_cassandra_done ($db, $keyspace);
 
 echo "OK";
-
 --EXPECT--
 array(1) {
   [0]=>

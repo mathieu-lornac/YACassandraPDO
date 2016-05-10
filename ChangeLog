@@ -1,3 +1,6 @@
+0.7.0
+ * Compatibility with PHP7; Retrocompatibility with previous verions of PHP are broken
+
 0.6.0
  * Compatibility with cassandra 2.0.x
 
